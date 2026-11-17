@@ -27,7 +27,7 @@ final class InstallController
             return response()->json([
                 'error' => true,
                 'message' => 'Failed to verify signature.',
-            ]);
+            ], 401);
         }
 
         $store = Store::query()
