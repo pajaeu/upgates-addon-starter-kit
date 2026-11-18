@@ -11,7 +11,7 @@
     "require": {
         "php": "^8.4",
         "ext-openssl": "*",
-        "codetiv/upgates-php-sdk": "^0.0.1",
+        "codetiv/upgates-php-sdk": "^0.1.0",
         "laravel/framework": "^13.17",
         "laravel/tinker": "^3.0"
     },
