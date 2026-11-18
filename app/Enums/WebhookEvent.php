@@ -69,4 +69,56 @@ enum WebhookEvent: string
     case BenefitsCreate = 'Benefits.create';
     case BenefitsUpdate = 'Benefits.update';
     case BenefitsDelete = 'Benefits.delete';
+
+    case NewsCreate = 'News.create';
+    case NewsUpdate = 'News.update';
+    case NewsDelete = 'News.delete';
+
+    case AdvisorCreate = 'Advisor.create';
+    case AdvisorUpdate = 'Advisor.update';
+    case AdvisorDelete = 'Advisor.delete';
+
+    case VouchersCreate = 'Vouchers.create';
+    case VouchersUpdate = 'Vouchers.update';
+    case VouchersDelete = 'Vouchers.delete';
+
+    case SuppliersCreate = 'Suppliers.create';
+    case SuppliersUpdate = 'Suppliers.update';
+    case SuppliersDelete = 'Suppliers.delete';
+
+    case RecyclingFeesCreate = 'RecyclingFees.create';
+    case RecyclingFeesUpdate = 'RecyclingFees.update';
+    case RecyclingFeesDelete = 'RecyclingFees.delete';
+
+    case PricingFormulasCreate = 'PricingFormulas.create';
+    case PricingFormulasUpdate = 'PricingFormulas.update';
+    case PricingFormulasDelete = 'PricingFormulas.delete';
+
+    case VoucherTemplatesCreate = 'VoucherTemplates.create';
+    case VoucherTemplatesUpdate = 'VoucherTemplates.update';
+    case VoucherTemplatesDelete = 'VoucherTemplates.delete';
+
+    case MailTemplatesCreate = 'MailTemplates.create';
+    case MailTemplatesUpdate = 'MailTemplates.update';
+    case MailTemplatesDelete = 'MailTemplates.delete';
+
+    case UnitsCreate = 'Units.create';
+    case UnitsUpdate = 'Units.update';
+    case UnitsDelete = 'Units.delete';
+
+    case VatsCreate = 'Vats.create';
+    case VatsUpdate = 'Vats.update';
+    case VatsDelete = 'Vats.delete';
+
+    case AgreementsCreate = 'Agreements.create';
+    case AgreementsUpdate = 'Agreements.update';
+    case AgreementsDelete = 'Agreements.delete';
+
+    case SurveysCreate = 'Surveys.create';
+    case SurveysUpdate = 'Surveys.update';
+    case SurveysDelete = 'Surveys.delete';
+
+    case FormsCreate = 'Forms.create';
+    case FormsUpdate = 'Forms.update';
+    case FormsDelete = 'Forms.delete';
 }
