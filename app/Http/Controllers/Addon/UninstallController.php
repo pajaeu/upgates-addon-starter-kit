@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Addon;
 
 use App\Actions\VerifySignature;
-use App\Http\Requests\UninstallRequest;
+use App\Http\Requests\Addon\UninstallRequest;
 use App\Models\Store;
 use Illuminate\Http\JsonResponse;
 
