@@ -21,6 +21,6 @@ final class VerifySignature
             ->get(self::SIGNATURE_KEY_PATH)
             ->body();
 
-        return openssl_verify($signaturePayload, base64_decode($signature), $signaturePublicKey, OPENSSL_ALGO_SHA256);
+        return openssl_verify($signaturePayload, base64_decode($signature), $signaturePublicKey, OPENSSL_ALGO_SHA256) === 1;
     }
 }
