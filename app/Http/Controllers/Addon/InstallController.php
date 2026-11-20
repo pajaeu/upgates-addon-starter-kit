@@ -2,14 +2,15 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Addon;
 
 use App\Actions\VerifySignature;
 use App\Factories\UpgatesClientFactory;
-use App\Http\Requests\InstallRequest;
+use App\Http\Requests\Addon\InstallRequest;
 use App\Models\Store;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Str;
 
 final class InstallController
 {
@@ -49,14 +50,16 @@ final class InstallController
 
         $client = UpgatesClientFactory::makeFromStore($store);
 
-        $owner = $client->owner();
+        $owners = $client->owner();
 
-        if ($owner === []) {
+        if ($owners === []) {
             return response()->json([
                 'error' => true,
                 'message' => "Failed to retrieve store's owner.",
             ]);
         }
+
+        $owner = $owners[0];
 
         $store->update([
             'billing_company' => $owner['company'],
@@ -70,12 +73,15 @@ final class InstallController
             'billing_country' => $owner['country_id'],
         ]);
 
-        $user = User::query()->updateOrCreate([
-            'email' => $owner['email'],
-        ], [
-            'email' => $owner['email'],
-            'name' => $owner['firstname'].' '.$owner['surname'],
-        ]);
+        $user = User::query()->where('email', $owner['email'])->first();
+
+        if (! $user) {
+            $user = User::query()->create([
+                'email' => $owner['email'],
+                'name' => $owner['firstname'].' '.$owner['surname'],
+                'password' => Str::password(),
+            ]);
+        }
 
         $user->stores()->syncWithoutDetaching([$store->id]);
 
